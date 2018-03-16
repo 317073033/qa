@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="file" name="" multiple value="">
+    <script type="text/javascript">
+        document.querySelector("input").onchange = function (event) {
+           const files = event.target.files;
+           let sumSize = 0;
+           Array.from(files).forEach(file=>sumSize += file.size);
+           if(files.length > 5){
+               //  error!
+           }else if(sumSize / 1000 / 1000 > 5){
+               //  error!
+           }else{
+              // here is ok
+           }
+        }
+    </script>
+  </body>
+</html>
