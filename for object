@@ -1,0 +1,47 @@
+let items = [{
+  sku: "sku1",
+  quantity: 8
+}, {
+  sku: "sku2",
+  quantity: 9
+}, {
+  sku: "sku3",
+  quantity: 4
+}, {
+  sku: "sku2",
+  quantity: 2
+}, {
+  sku: "sku3",
+  quantity: 8
+}, {
+  sku: "sku7",
+  quantity: 3
+}, {
+  sku: "sku1",
+  quantity: 10
+}];
+
+function combinesku(items) {
+
+  let itemsK = [];
+  let i = 0;
+
+  while (items.length > 0) {
+    itemsK[i] = {};
+    itemsK[i].sku = items[0].sku;
+    itemsK[i].quantity = items[0].quantity;
+    items.splice(0, 1);
+    for (let j = 0; j < items.length; j++) {
+      if (itemsK[i].sku == items[j].sku) {
+        itemsK[i].quantity = itemsK[i].quantity + items[j].quantity;
+        items.splice(j, 1);
+        j--;
+      }
+    }
+    i++;
+  }
+  console.log(itemsK);
+
+}
+
+combinesku(items);
